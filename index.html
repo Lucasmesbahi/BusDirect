@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BusDirect - Gestion des réservations</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -82,7 +83,7 @@
 
       <div class="flex flex-col gap-6">
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-5">
+        <form class="rounded-2xl border border-slate-200 bg-white p-5">
           <h2 class="text-base font-bold text-[#0B2545]">Réserver</h2>
           <p class="mb-4 text-xs text-slate-500">Ajoutez un nouveau passager au trajet.</p>
           <label for="reserver-nom" class="mb-1 block text-sm font-medium">Nom du passager</label>
@@ -111,10 +112,10 @@
             <option>19</option>
             <option>20</option>
           </select>
-          <button type="button" class="w-full rounded-lg bg-[#0B2545] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#13396b]">Réserver</button>
-        </section>
+          <button id="reservation-btn" type="button" class="w-full rounded-lg bg-[#0B2545] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#13396b]">Réserver</button>
+        </form>
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-5">
+        <form class="rounded-2xl border border-slate-200 bg-white p-5">
           <h2 class="text-base font-bold text-[#0B2545]">Modifier</h2>
           <p class="mb-4 text-xs text-slate-500">Changez le nom ou la place d'un passager.</p>
           <label for="modifier-reservation" class="mb-1 block text-sm font-medium">Réservation</label>
@@ -148,10 +149,11 @@
             <option>19</option>
             <option>20</option>
           </select>
-          <button type="button" class="w-full rounded-lg border-2 border-[#0B2545] bg-white px-4 py-2.5 text-sm font-semibold text-[#0B2545] hover:bg-slate-50">Modifier</button>
-        </section>
 
-        <section class="rounded-2xl border border-slate-200 bg-white p-5">
+          <button id="bouton-modifier" type="button" class="...">Modifier</button>
+        </form>
+
+        <form class="rounded-2xl border border-slate-200 bg-white p-5">
           <h2 class="text-base font-bold text-[#0B2545]">Supprimer</h2>
           <p class="mb-4 text-xs text-slate-500">Libérez une place déjà réservée.</p>
           <label for="supprimer-reservation" class="mb-1 block text-sm font-medium">Réservation</label>
@@ -160,7 +162,7 @@
             <option>Siège 2 - Salaheddine Mesbahi</option>
           </select>
           <button type="button" class="w-full rounded-lg border border-red-300 bg-[#FEE2E2] px-4 py-2.5 text-sm font-semibold text-red-700 hover:bg-red-200">Supprimer</button>
-        </section>
+        </form>
       </div>
     </div>
   </main>
