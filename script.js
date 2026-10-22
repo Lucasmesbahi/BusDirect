@@ -1,4 +1,3 @@
-
 const reserverNom = document.querySelector("#reserver-nom");
 const reserverSiege = document.querySelector("#reserver-siege");
 const suppression = document.querySelector("#supprimer-reservation");
