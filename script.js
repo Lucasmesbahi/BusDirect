@@ -1,13 +1,12 @@
 const places = document.querySelectorAll(".seat");
-const inputNom = document.querySelector("#reserver-nom");
+const passangername = document.querySelector("#reserver-nom");
 const selectSiege = document.querySelector("#reserver-siege");
 const btnConfirmer = document.querySelector("#reservation-btn");
 const disponibles = document.querySelector("#places-disponibles");
-const recette = document.querySelector("#recette");
+const chiffreaffaire = document.querySelector("#chiffreaffaire");
 
 const prixPlace = 80;
-const Reservation = []
-function mettreAJour() {
+function mettreajour() {
     selectSiege.innerHTML = '<option value="">Choisir un siège</option>';
 
     places.forEach(function(place) {
@@ -22,7 +21,7 @@ function mettreAJour() {
 }
 
 btnConfirmer.addEventListener("click", function() {
-    const nom = inputNom.value.trim();
+    const nom = passangername.value.trim();
     const numeroChoisi = selectSiege.value;
 
     if (nom === "") {
@@ -68,13 +67,24 @@ btnConfirmer.addEventListener("click", function() {
         disponibles.textContent = Number(disponibles.textContent) - 1;
     }
 
-    if (recette) {
-        recette.textContent = Number(recette.textContent) + prixPlace;
+    if (chiffreaffaire) {
+        chiffreaffaire.textContent = Number(chiffreaffaire.textContent) + prixPlace;
     }
 
-    inputNom.value = ""; 
+    passangername.value = ""; 
 
-    mettreAJour();
+    mettreajour();
 });
-mettreAJour();
-selectSiege
+mettreajour();
+
+const Reservation = []
+
+Reservation.push(
+    {
+        siege: numeroChoisi,
+        PassagerNom: nom
+    }
+)
+
+const modification= document.querySelector("#modifier-reservation")
+const suppresion = document.querySelector("#supprimer-reservation")
