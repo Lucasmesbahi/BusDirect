@@ -40,15 +40,15 @@
         <div class="mx-auto max-w-md rounded-3xl border-2 border-slate-200 bg-slate-50 p-3 sm:p-5">
           <div class="mb-4 flex items-center justify-between rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-600">
             <span>Avant du bus</span>
-            <span class="rounded bg-blue-100 px-2 py-0.5 text-blue-700"><span id="places-disponibles">19</span> places disponibles</span>
+            <span class="rounded bg-blue-100 px-2 py-0.5 text-blue-700"><span id="places-disponibles">20</span> places disponibles</span>
           </div>
 
-          <p class="mb-4 text-right text-xs font-semibold text-slate-600">chiffreaffaire : <span id="chiffreaffaire">80</span> DH</p>
+          <p class="mb-4 text-right text-xs font-semibold text-slate-600">chiffreaffaire : <span id="chiffreaffaire">0</span> DH</p>
 
           <div class="grid grid-cols-[1fr_1fr_1.5rem_1fr_1fr] gap-2">
 
             <div data-seat="1" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">1</p><p class="truncate text-xs">Libre</p></div>
-            <div data-seat="2" class="seat min-w-0 rounded-lg border border-red-300 bg-[#FEE2E2] p-2 text-red-800"><p class="text-sm font-bold">2</p><p class="truncate text-xs">Salaheddine Mesbahi</p></div>
+            <div data-seat="2" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">2</p><p class="truncate text-xs">Libre</p></div>
             <div></div>
             <div data-seat="3" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">3</p><p class="truncate text-xs">Libre</p></div>
             <div data-seat="4" class="seat min-w-0 rounded-lg border border-green-300 bg-[#DCFCE7] p-2 text-green-800"><p class="text-sm font-bold">4</p><p class="truncate text-xs">Libre</p></div>
@@ -123,7 +123,7 @@
           <label for="modifier-reservation" class="mb-1 block text-sm font-medium">Réservation</label>
           <select id="modifier-reservation" class="mb-4 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-[#F59E0B] focus:outline-none">
             <option>Sélectionner un passager</option>
-            <option>Siège 2 - Salaheddine Mesbahi</option>
+            <option> </option>
           </select>
           <label for="modifier-nom" class="mb-1 block text-sm font-medium">Nom du passager</label>
           <input id="modifier-nom" type="text" placeholder="Nom du passager" class="mb-4 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-[#F59E0B] focus:outline-none">
@@ -152,7 +152,7 @@
             <option>20</option>
           </select>
 
-          <button id="bouton-modifier" type="button" class="...">Modifier</button>
+          <button id="bouton-modifier" type="button" class="w-full rounded-lg bg-[#0B2545] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#13396b]">Modifier</button>
         </form>
 
         <form class="rounded-2xl border border-slate-200 bg-white p-5">
@@ -163,9 +163,8 @@
             <option>Sélectionner un passager</option>
             <option>Siège 2 - Salaheddine Mesbahi</option>
           </select>
-          <button type="button" class="w-full rounded-lg border border-red-300 bg-[#FEE2E2] px-4 py-2.5 text-sm font-semibold text-red-700 hover:bg-red-200">Supprimer</button>
-        </form>
-      </div>
+        <button id="bouton-supprimer" type="button" class="w-full rounded-lg border border-red-300 bg-[#FEE2E2] px-4 py-2.5 text-sm font-semibold text-red-700 hover:bg-red-200">Supprimer</button>        </form>
+    </div>
     </div>
     <div id="notification"></div> 
   </main>
