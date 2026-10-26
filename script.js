@@ -98,3 +98,92 @@ btnConfirmer.addEventListener("click", function() {
 });
 
 mettreajour();
+const modifierReservation = document.querySelector("#modifier-reservation");
+const modifierNom = document.querySelector("#modifier-nom");
+const modifierSiege = document.querySelector("#modifier-siege");
+const boutonModifier = document.querySelector("#bouton-modifier");
+
+boutonModifier.addEventListener("click", function() {
+    const numeroActuel = modifierReservation.value;
+    const nouveauNom = modifierNom.value.trim();
+    const nouveauSiege = modifierSiege.value;
+
+    let placeActuelle = null;
+    let placeNouvelle = null;
+
+    places.forEach(function(place) {
+        if (place.dataset.seat === numeroActuel) {
+            placeActuelle = place;
+        }
+
+        if (place.dataset.seat === nouveauSiege) {
+            placeNouvelle = place;
+        }
+    });
+
+    if (placeActuelle === null) {
+        alert("Choisissez une réservation");
+        return;
+    }
+
+    const statutActuel = placeActuelle.querySelectorAll("p")[1];
+    const nomActuel = statutActuel.textContent.trim();
+
+    if (nouveauNom !== "") {
+        let nomExiste = false;
+
+        places.forEach(function(place) {
+            const statut = place.querySelectorAll("p")[1].textContent.trim();
+
+            if (statut.toLowerCase() === nouveauNom.toLowerCase() && statut !== nomActuel) {
+                nomExiste = true;
+            }
+        });
+
+        if (nomExiste) {
+            alert("Ce nom existe déjà");
+            return;
+        }
+
+        statutActuel.textContent = nouveauNom;
+    }
+
+    if (nouveauSiege !== "" && nouveauSiege !== numeroActuel) {
+        const statutNouveau = placeNouvelle.querySelectorAll("p")[1];
+
+        if (statutNouveau.textContent.trim() !== "Libre") {
+            alert("Ce siège est déjà occupé");
+            return;
+        }
+
+        statutNouveau.textContent = statutActuel.textContent;
+
+        placeNouvelle.classList.remove(
+            "bg-[#DCFCE7]",
+            "border-green-300",
+            "text-green-800"
+        );
+
+        placeNouvelle.classList.add(
+            "bg-[#FEE2E2]",
+            "border-red-300",
+            "text-red-800"
+        );
+
+        statutActuel.textContent = "Libre";
+
+        placeActuelle.classList.remove(
+            "bg-[#FEE2E2]",
+            "border-red-300",
+            "text-red-800"
+        );
+
+        placeActuelle.classList.add(
+            "bg-[#DCFCE7]",
+            "border-green-300",
+            "text-green-800"
+        );
+    }
+
+    mettreajour();
+});
