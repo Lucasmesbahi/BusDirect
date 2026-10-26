@@ -5,17 +5,29 @@ const btnConfirmer = document.querySelector("#reservation-btn");
 const disponibles = document.querySelector("#places-disponibles");
 const chiffreaffaire = document.querySelector("#chiffreaffaire");
 
+const modification = document.querySelector("#modifier-reservation");
+const suppresion = document.querySelector("#supprimer-reservation");
+
 const prixPlace = 80;
+
 function mettreajour() {
     selectSiege.innerHTML = '<option value="">Choisir un siège</option>';
+    modification.innerHTML = '<option value="">Choisir une réservation</option>';
+    suppresion.innerHTML = '<option value="">Choisir une réservation</option>';
 
     places.forEach(function(place) {
         const numero = place.dataset.seat;
         const statut = place.querySelectorAll("p")[1].textContent.trim();
 
-            if (statut === "Libre") {
+        if (statut === "Libre") {
             selectSiege.innerHTML +=
                 "<option value='" + numero + "'>Siège " + numero + "</option>";
+        } else {
+            modification.innerHTML +=
+                "<option value='" + numero + "'>Siège " + numero + " - " + statut + "</option>";
+
+            suppresion.innerHTML +=
+                "<option value='" + numero + "'>Siège " + numero + " - " + statut + "</option>";
         }
     });
 }
@@ -35,6 +47,20 @@ btnConfirmer.addEventListener("click", function() {
     }
 
     let siegeTrouve = false;
+    let nomExiste = false;
+
+    places.forEach(function(place) {
+        const statut = place.querySelectorAll("p")[1].textContent.trim();
+
+        if (statut.toLowerCase() === nom.toLowerCase()) {
+            nomExiste = true;
+        }
+    });
+
+    if (nomExiste) {
+        alert("Ce passager possède déjà une réservation.");
+        return;
+    }
 
     places.forEach(function(place) {
         const numero = place.dataset.seat;
@@ -63,28 +89,12 @@ btnConfirmer.addEventListener("click", function() {
         return;
     }
 
-    if (disponibles) {
-        disponibles.textContent = Number(disponibles.textContent) - 1;
-    }
+    disponibles.textContent = Number(disponibles.textContent) - 1;
+    chiffreaffaire.textContent = Number(chiffreaffaire.textContent) + prixPlace;
 
-    if (chiffreaffaire) {
-        chiffreaffaire.textContent = Number(chiffreaffaire.textContent) + prixPlace;
-    }
-
-    passangername.value = ""; 
+    passangername.value = "";
 
     mettreajour();
 });
+
 mettreajour();
-
-const Reservation = []
-
-Reservation.push(
-    {
-        siege: numeroChoisi,
-        PassagerNom: nom
-    }
-)
-
-const modification= document.querySelector("#modifier-reservation")
-const suppresion = document.querySelector("#supprimer-reservation")
