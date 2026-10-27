@@ -10,6 +10,21 @@ const suppresion = document.querySelector("#supprimer-reservation");
 
 const prixPlace = 80;
 
+function sauvgarderRes () {
+    let reservation = [];
+    places.forEach(function(place) {
+        const numero = place.dataset.seat;
+        const nom = place.querySelectorAll("p")[1].textContent.trim();
+        if (nom !== "Libre") {
+            reservation.push({
+                siege: numero,
+                nom: nom
+            })
+        }
+    })
+    localStorage.setItem("reservations", JSON.stringify(reservation));
+}
+
 function mettreajour() {
     selectSiege.innerHTML = '<option value="">Choisir un siège</option>';
     modification.innerHTML = '<option value="">Choisir une réservation</option>';
@@ -198,3 +213,4 @@ boutonSupprimer.addEventListener("click", function() {
     mettreajour();
     alert("Réservation supprimée");
 });
+
