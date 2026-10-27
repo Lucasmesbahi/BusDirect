@@ -288,6 +288,22 @@ boutonSupprimer.addEventListener("click", function() {
     chiffreaffaire.textContent = Number(chiffreaffaire.textContent) - prixPlace;
     mettreajour();
     saveState();
-    alert("Réservation supprimée");
+    notification(modifierNotification, "Modification reussie avec success")
 });
 loadState();
+
+const ajout = document.querySelector("#ajout");
+const modifierNotification= document.querySelector("#modificationNotification")
+const suppresionnotif = document.querySelector("#suppresion");
+function notification (id,statut) {
+    const p = document.createElement ("p");
+    p.className = "bg-green-600 text-white px-4 py-2 rounded";
+    p.textContent = Message;
+
+    id.innerHTML = "";
+    id.appendChild(p);
+
+    setTimeout(function() {
+        p.remove();
+    }, 3000);
+}
