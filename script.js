@@ -110,6 +110,7 @@ btnConfirmer.addEventListener("click", function() {
     passangername.value = "";
 
     mettreajour();
+    sauvgarderRes();
 });
 
 mettreajour();
@@ -184,6 +185,7 @@ boutonModifier.addEventListener("click", function() {
         );
     }
     mettreajour();
+    sauvgarderRes();
 });
 const boutonSupprimer = document.querySelector("#bouton-supprimer");
 boutonSupprimer.addEventListener("click", function() {
@@ -211,6 +213,7 @@ boutonSupprimer.addEventListener("click", function() {
     disponibles.textContent = Number(disponibles.textContent) + 1;
     chiffreaffaire.textContent = Number(chiffreaffaire.textContent) - prixPlace;
     mettreajour();
+    sauvgarderRes();
     alert("Réservation supprimée");
 });
 
